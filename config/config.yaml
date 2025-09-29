@@ -1,0 +1,20 @@
+# Configuration for Ansible Script Runner
+# Use this file to set defaults for playbook path, inventory, extra_vars, and ansible binary.
+# Recruiter-style comment: keep secrets out of this file; use environment variables or vault for sensitive data.
+
+ansible:
+  binary: "ansible-playbook"       # or "/usr/bin/ansible-playbook"
+  default_playbook: "playbooks/site.yml"
+  default_inventory: "inventory/hosts.ini"
+  default_extra_vars: {}           # map of extra vars, can be overridden by CLI
+  working_dir: "."                 # base working directory for relative paths
+
+logging:
+  level: "INFO"
+  file: "logs/ansible_runner.log"
+  max_bytes: 10485760              # 10 MB
+  backup_count: 5
+
+runner:
+  timeout_seconds: 3600            # default timeout for processes
+  enable_async: false
